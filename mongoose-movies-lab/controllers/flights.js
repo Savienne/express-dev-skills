@@ -5,7 +5,7 @@ function index(req, res) {
     .then(flights =>{
 
         res.render("flights", {
-            title: "Add Flights", 
+            title: "All Flights", 
             flights: flights
           })
     })
@@ -19,25 +19,35 @@ function index(req, res) {
 
 function newFlight(req, res) {
     res.render("flights/new", {
-        title: "Add Flights",
+        title: "Add Flight"
       })
 }
 
-function create(req, res) {
-  Flight.create(req.body)
-  .then(flight => {
-    console.log(flight)
-    res.redirect(`/flights/new`)
-  })
-  .catch(err => {
-    console.log(err)
-    res.redirect('/flights/new')
-  })
+// function create(req, res) {
+//   Flight.create(req.body)
+//   .then(flight => {
+//     console.log(flights)
+//     res.redirect(`/flights/new`)
+//   })
+//   .catch(err => {
+//     console.log(err)
+//     res.redirect('/flights/new')
+//   })
 
-}
+// }
+
+function create(req, res) {
+    Flight.create(req.body)
+    .then(flights => {
+      res.redirect(`/flights`)
+    })
+    .catch(err => {
+      res.redirect('/flights')
+    })
+  }
 
 export{
-    newFlight as new,
-    create,
     index,
+    newFlight as new,
+    create
 }
