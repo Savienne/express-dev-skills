@@ -1,5 +1,5 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/movies/new.css" />
+<link rel="stylesheet" href="/stylesheets/movies/index.css" />
 <%- include('../partials/nav') %>
 
 
@@ -11,20 +11,19 @@
   <table>
     <thead>
       <tr>
-        <th>Flights</th>
-        <th>flightNo</th>
-        <th>Airport</th>
         <th>Airline</th>
-        <th>nowBoarding</th>
+        <th>Airport</th>
+        <th>flightNo</th>
+        <th>Departs</th>
       </tr>
     </thead>
     <tbody>
         <% flights.forEach(flights => { %>
         <tr>
-          <td><%= flights.title %></td>
-          <td><%= flights.flightNo %></td>
-          <td><%= flights.Airport %></td>
-          <td><%= flights.nowBoarding ? 'true' : 'false' %></td> 
+          <td><%= flights.title ? 'Yes' : 'Southwest'  %></td>
+          <td><%= flights.flightNo ? '12' : 'DEN'  %></td>
+          <td><%= flights.Airport ? 'DEN' : '15'%></td>
+          <td><%= flights.Departs ? '2022' : '2023' %></td> 
         </tr>
         <% }) %>
     </tbody>
@@ -36,3 +35,4 @@
 
 
 
+<select name="airport"><option value="DEN"></option></select>
