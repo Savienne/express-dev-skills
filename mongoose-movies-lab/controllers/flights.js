@@ -29,6 +29,29 @@ function index(req, res) {
       })
     })
   }
+
+  function deleteFlight(req, res) {
+    Flight.findByIdAndDelete(req.params.id)
+    .then(() => {
+      res.redirect("/flights")
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect("/")
+    })
+  }
+
+  // function editFlight(req, res){
+  //   Flight.findById(req.params.id, function(err, flights){
+  //     res.render("/flights/edit", {
+  //       flights,
+  //       err,
+  //       title: "Edit Flight"
+  //     })
+  //   })
+  // }
+
+
   // function show(req, res) {
   //   Flight.findById(req.params.id)
   //   .then(flights => {
@@ -46,4 +69,5 @@ export{
   newFlight as new,
   create,
   index,
+  deleteFlight as delete,
 }
