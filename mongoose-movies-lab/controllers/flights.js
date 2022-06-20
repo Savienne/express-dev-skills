@@ -52,22 +52,23 @@ function index(req, res) {
   // }
 
 
-  // function show(req, res) {
-  //   Flight.findById(req.params.id)
-  //   .then(flights => {
-  //     res.render('flights/show', { 
-  //       title: 'Flight Details', 
-  //       flights: flights,
-  //     })    
-  //   })
-  //   .catch(err => {
-  //     console.log(err)
-  //     res.redirect("/")
-  //   })
-  // }
+  function show(req, res) {
+    Flight.findById(req.params.id)
+    .then(flights => {
+      res.render('flights/show', { 
+        title: 'Flight Details', 
+        flights: flights,
+      })    
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect("/")
+    })
+  }
 export{
   newFlight as new,
   create,
   index,
   deleteFlight as delete,
+  show,
 }

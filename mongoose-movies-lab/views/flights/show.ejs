@@ -5,15 +5,14 @@
 <main>
   <h1><%= title %></h1>
   <section>
-    <div>Title: </div>
-    <div><%= flights.title %></div>
-    <div>airline: </div>
+    <div>Airline: </div>
     <div><%= flights.airline %></div>
-    <div>: </div>
-    <div><%= flights.airport%></div>
-    <div>departs: </div>
-    <div><%= flights.departs ? '2022' : '2023' %></div>
+    <div>Airport: </div>
+    <div><%= flights.airport %></div>
+    <div>flightNo: </div>
+    <div><%= flights.flightNo %></div>
+    <div>Time/Date of Departure: </div>
+    <div><%= flights.departs %></div>
   </section>
 </main>
-  
 <%- include('../partials/footer') %>
