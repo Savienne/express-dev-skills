@@ -52,6 +52,26 @@
 <div><%= flights.flightNo %></div>
 <div>Time/Date of Departure: </div>
 <div><%= flights.departs %></div>
+<%# start meal list %>
+<div>Meals:</div>
+<ul>
+  <% flights.meal.forEach(mealInfo => { %>
+    <li><%= mealInfo.name %></li>
+  <% }) %>
+</ul>
+<%# end meal list %>
+</section>
+
+<%# add to meal form below this comment %>
+<form id="add-meal-flight" action="/flights/<%= flights._id %>/meal" method="POST">
+<select name="mealId">
+  <% meals.forEach(meal => { %>
+    <option value="<%= meal._id %>"><%= meal.name %></option>
+  <% }) %>
+</select>
+<button type="submit">Add to Meal</button>
+</form>
+
 </section>
   </select>
   <%# You have not purchased a ticket yet %>
