@@ -6,6 +6,11 @@ function newFlight(req, res) {
   })
 }
 
+// Flight.create(req.body)
+//   .then(flight => {
+//     res.redirect(`/flights/${flight._id}`)
+//   })
+
 function create(req, res) {
   console.log('CREATE HIT')
   console.log("REQ.BODY:", req.body)

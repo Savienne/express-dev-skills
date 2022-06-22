@@ -6,7 +6,7 @@
   <h1><%= title %></h1>
   
   <form id="new-form" action="/flights/<%= flight._id %>?_method=PUT" method="POST">
-    <label for="title-input">airline:</label>
+    <label for="airline-input">airline:</label>
     <select name="airline" id="airline-input">
       <option value="<%= flight.title %>">Southwest</option>
       <option value="American">American</option>
