@@ -1,4 +1,5 @@
 import { Flight } from '../models/flight.js'
+import { Meal } from '../models/meal.js'
 
 function newFlight(req, res) {
   res.render("flights/new", {
@@ -45,7 +46,6 @@ function index(req, res) {
       res.redirect("/")
     })
   }
-
   function show(req, res) {
     Flight.findById(req.params.id)
     .then(flights => {
