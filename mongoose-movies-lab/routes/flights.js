@@ -6,12 +6,11 @@ const router = Router()
 router.get('/', flightsCtrl.index)
 router.get('/new', flightsCtrl.new)
 router.post('/', flightsCtrl.create)
+router.post('/:id/tickets', flightsCtrl.createTicket)
 router.delete("/:id", flightsCtrl.delete)
 router.get('/:id', flightsCtrl.show)
-router.get('/', function(req, res) {
-  res.send('respond with a resource')
-
-})
+router.get('/:id/edit', flightsCtrl.edit)
+router.put("/:id", flightsCtrl.update)
 
 export {
   router

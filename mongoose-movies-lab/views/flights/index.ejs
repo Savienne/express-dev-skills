@@ -1,5 +1,5 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/movies/index.css" />
+<link rel="stylesheet" href="/stylesheets/flights/index.css" />
 <%- include('../partials/nav') %>
 
 <main>
@@ -16,10 +16,10 @@
     <tbody>
         <% flights.forEach(flight => { %>
         <tr>
-          <td><a href="/Flights/<%= flight._id %>">FLIGHT DETAILS</a></td>
+          <td><a href="/flights/<%= flight._id %>">FLIGHT DETAILS</a></td>
           <td>
             <form action="/flights/<%= flight._id %>?_method=DELETE" method="POST">
-              <button>X</button>
+              <button>Delete Flight</button>
             </form>
           </td>
           <td><%= flight.airline  %></td>
