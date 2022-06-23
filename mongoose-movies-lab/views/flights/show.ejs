@@ -27,12 +27,14 @@
           </tr>
           <% }) %>
           <%# start meal options %>
-          
+          <% flights.meal.forEach(meal => { %>
+            <li><%= meal.flights %></li>
+          <% }) %>
           <%# end meal options %>
           </section>
           <%# add to meals below this comment %>
-            <form id="add-meal-to-flight" action="??" method="POST"></form>
-
+           
+          <form id="add-meals-to-flights" action="/flights/<%= flights._id %>/meals.flights" method="POST"></form>
           </section>
             </select>
           <%# You have not purchased a ticket yet %>
@@ -47,6 +49,14 @@
           id="add-ticket-form"
           action="/flights/<%= flights._id %>/tickets"
           method="POST">
+          <div>Airline: </div>
+          <div><%= flights.airline %></div>
+          <div>Airport: </div>
+          <div><%= flights.airport %></div>
+          <div>flightNo: </div>
+          <div><%= flights.flightNo %></div>
+          <div>Time/Date of Departure: </div>
+          <div><%= flights.departs %></div>
           <label for="seat-select">Seat:</label> 
           <input name="seat" id="seat-select" required pattern="[A-F][1-9]\d?">
   <label for="price-select">Price:</label>
@@ -54,14 +64,15 @@
   
   <button type="submit">Purchase Ticket</button>
 </form>
-<div>Airline: </div>
-<div><%= flights.airline %></div>
-<div>Airport: </div>
-<div><%= flights.airport %></div>
-<div>flightNo: </div>
-<div><%= flights.flightNo %></div>
-<div>Time/Date of Departure: </div>
-<div><%= flights.departs %></div>
+<%# add to meal form below this comment %>
+  <form id="add-meals-to-flight" action="/flights/<%= flights._id %>/meal" method="POST">
+    <select name="mealId">
+      <% meals.forEach(meals => { %>
+        <option value="<%= meals._id %>"><%= meals.name%></option>
+      <% }) %>
+    </select>
+    <button type="submit">Add to Flight</button>
+  </form>
 
 </main>
 <%- include('../partials/footer') %>
